@@ -18,7 +18,7 @@ client = Client('user_login', api_id, api_hash)
 
 client.start()
 client.stop()
-print('Ви успішно уввійшли у свій обліковий запис.')
+print('Succesfully login into your account.')
 
 @client.on_message(filters.command('spam', prefixes="/") & filters.me)
 def message_handler(client, message):
@@ -27,7 +27,7 @@ def message_handler(client, message):
     args = message.text.split(' ')
     if args[1] == 'stop':
         stop = True
-        client.send_message(message.chat.id, 'Ви успішно відімкнули спам.')
+        client.send_message(message.chat.id, 'You succesfully disabled spam.')
     if check_for_number(args[1]) == True: times = int(args[1])
     args.pop(0)
     args.pop(0)
@@ -46,10 +46,10 @@ def message_handler(client, message):
 
 @client.on_message(filters.command('help', prefixes="/") & filters.me)
 def message_handler(client, message):
-    client.edit_message_text(message.chat.id, message.id, 'Використовуйте: /spam <кількість повідомлень> <повідомлення>\nBy @shineforever2.')
+    client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>\nBy @shineforever2.')
 
 @client.on_message(filters.command('status', prefixes='/') & filters.me)
 def message_handler(client, message):
-    client.edit_message_text(message.chat.id, message.id, 'Бот працює✅')
+    client.edit_message_text(message.chat.id, message.id, 'Bot Works✅...')
 
 client.run()
