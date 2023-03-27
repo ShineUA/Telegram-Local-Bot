@@ -32,6 +32,7 @@ def message_handler(client, message):
     args.pop(0)
     args.pop(0)
     if times >= 1:
+        client.edit_message_text(message.chat.id, message.id, 'Spam Starts!')
         while times >= 1:
             try:
                 if stop == True:
