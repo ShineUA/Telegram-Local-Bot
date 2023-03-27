@@ -1,4 +1,4 @@
-# Telegram-Local-Bot
+# Telegram-Local-Spam-Bot
 This is a local bot for Telegram Messengr made by me.
 TUTORIAL!!!
 
