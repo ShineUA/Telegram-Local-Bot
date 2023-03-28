@@ -18,7 +18,7 @@ client = Client('user_login', api_id, api_hash)
 
 client.start()
 client.stop()
-print('Succefull login')
+print('Succesfully login.')
 
 @client.on_message(filters.command('spam', prefixes="/") & filters.me)
 def message_handler(client, message):
@@ -26,8 +26,12 @@ def message_handler(client, message):
     global times
     args = message.text.split(' ')
     try:
-        if args[1] in '1234567890':
-            if check_for_number(args[1]) == True: times = int(args[1])
+        if check_for_number(args[1]) == True:
+            times = int(args[1])
+        else:
+            if args[1] != 'stop':
+                client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>\nBy @shineforever2.')
+                args.append('None')
     except IndexError:
         client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>\nBy @shineforever2.')
         args.append('None')
@@ -37,8 +41,11 @@ def message_handler(client, message):
     args.pop(0)
     args.pop(0)
     if times >= 1:
-        client.edit_message_text(message.chat.id, message.id, 'Spam Starts!')
+        logo_msg = 1
         while times >= 1:
+            if logo_msg == 1:
+                client.edit_message_text(message.chat.id, message.id, 'Spam Starts!')
+                logo_msg -= 1
             try:
                 if stop == True:
                     times = 0
@@ -52,6 +59,6 @@ def message_handler(client, message):
 
 @client.on_message(filters.command('status', prefixes='/') & filters.me)
 def message_handler(client, message):
-    client.edit_message_text(message.chat.id, message.id, 'Bot Works✅')
+    client.edit_message_text(message.chat.id, message.id, 'Bot works✅')
 
 client.run()
