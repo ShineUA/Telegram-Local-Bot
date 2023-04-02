@@ -30,7 +30,7 @@ def message_handler(client, message):
             times = int(args[1])
         else:
             if args[1] != 'stop':
-                client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>\nBy @shineforever2.')
+                client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>')
                 args.append('None')
     except IndexError:
         client.edit_message_text(message.chat.id, message.id, 'Use: /spam <amount of messages> <message>\nBy @shineforever2.')
