@@ -1,5 +1,5 @@
 # Telegram-Local-Spam-Bot
-This is a local bot for Telegram Messengr made by me.
+This is a local bot for Telegram Messenger made by me.
 TUTORIAL!!!
 
 First, make your Telegram Application on page(my.telegram.org).
